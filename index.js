@@ -24,8 +24,17 @@ const isNumber = (str) => /^[0-9]+$/.test(str);
 
 
 const getHighestLowercase = (arr) => {
-    const lowercase = arr.filter(c => c === c.toLowerCase() && c !== c.toUpperCase());
-    return lowercase.length > 0 ? [lowercase.sort().reverse()[0]] : [];
+    let highest = '';
+    for (const item of arr) {
+        if (typeof item === 'string') {
+            for (const char of item) {
+                if (char >= 'a' && char <= 'z' && char > highest) {
+                    highest = char;
+                }
+            }
+        }
+    }
+    return highest ? [highest] : [];
 };
 
 

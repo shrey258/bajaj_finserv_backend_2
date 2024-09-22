@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: 'https://bajaj-finserv-frontend-2.vercel.app' 
+    origin: "https://bajaj-finserv-frontend-2.vercel.app/"
   }));
 app.use(morgan('dev'));
 app.use(bodyParser.json());

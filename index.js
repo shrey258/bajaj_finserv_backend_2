@@ -8,7 +8,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3001' // Replace with your frontend URL
+    origin: 'https://bajaj-finserv-frontend-2.vercel.app' // Replace with your frontend URL
   }));
 app.use(morgan('dev'));
 app.use(bodyParser.json());

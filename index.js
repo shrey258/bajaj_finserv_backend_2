@@ -8,8 +8,8 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: "https://bajaj-finserv-frontend-2.vercel.app/"
-  }));
+    origin: ["https://bajaj-finserv-frontend-2.vercel.app", "https://bajaj-finserv-frontend-2.vercel.app/"]
+}));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 const port = process.env.PORT || 3000;
@@ -73,6 +73,11 @@ app.post('/bfhl', async (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+}
+
+// Export the Express app
+module.exports = app;
